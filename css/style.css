@@ -15,3 +15,35 @@ body {
     padding: 55px;
     border-radius: 12px;
 }
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.topo input {
+    width: 350px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #191818;
+    outline: none;
+    font-size: 1.2rem;
+    background: #191818;
+    color: white;
+}
+
+.topo button {
+    width: 45px;
+    border-radius: 12px;
+    border: 1px solid #191818;
+    background: #191818;
+    color: white;
+    outline: none;
+    
+}
+
+.topo button:hover {
+    background: #1f1e1e;
+    cursor: pointer;
+}
