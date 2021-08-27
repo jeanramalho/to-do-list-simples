@@ -4,38 +4,46 @@ let listaTarefas = document.querySelector('#listaTarefas')
 let titulo = document.querySelector('.titulozinho')
 let recebeTitulo = prompt('Digite o Nome da lista:')
 
-titulo.addEventListener('click', (e) => {
-    
-    let recebeTitulo = prompt('Digite o Nome da lista:')
-    titulo.innerHTML = `${recebeTitulo}`
-    
-}) 
-
-function editaTitulo() {
-
+function insereTitulo() {
+    if (recebeTitulo) {
+        titulo.innerHTML = `${recebeTitulo}`
+    } else {
+        titulo.innerHTML = "Lista de Tarefas"
+    }
 }
 
-titulo.innerHTML = `${recebeTitulo}`
+insereTitulo()
+
+titulo.addEventListener('click', (e) => {
+    recebeTitulo = prompt('Digite o Nome da lista:')
+    if (recebeTitulo) {
+        titulo.innerHTML = `${recebeTitulo}`
+    } else {
+        titulo.innerHTML = "Lista de Tarefas"
+    }
+
+})
+
 
 
 
 
 inputNovaTarefa.addEventListener('keypress', (e) => {
-    if(e.keyCode == 13) {
+    if (e.keyCode == 13) {
         let tarefa = {
             nome: inputNovaTarefa.value,
-            id:gerarId(),
+            id: gerarId(),
         }
         // adicionar a tarefa ao HTML
         adicionarTarefa(tarefa)
     }
-    
+
 })
 
 btnAddTarefa.addEventListener('click', (e) => {
     let tarefa = {
         nome: inputNovaTarefa.value,
-        id:'gerarId()'
+        id: 'gerarId()'
     }
     // adicionar a tarefa ao HTML
     adicionarTarefa(tarefa)
@@ -65,9 +73,9 @@ function criarTagLi(tarefa) {
     let btnExcluir = document.createElement('button')
     btnExcluir.classList.add('btnAcao')
     btnExcluir.innerHTML = '<i class="fa fa-trash"></i>'
-    btnExcluir.setAttribute('onclick', 'excluir('+tarefa.id+')')
+    btnExcluir.setAttribute('onclick', 'excluir(' + tarefa.id + ')')
 
-    
+
     div.appendChild(btnExcluir)
 
     li.appendChild(span)
@@ -80,9 +88,9 @@ function criarTagLi(tarefa) {
 
 function excluir(idTarefa) {
     let confirmacao = window.confirm("Tem certeza que deseja excluir essa tarefa?")
-    if(confirmacao) {
-        let li = document.getElementById(''+idTarefa+'')
-        if(li) {
+    if (confirmacao) {
+        let li = document.getElementById('' + idTarefa + '')
+        if (li) {
             listaTarefas.removeChild(li)
         }
     }
